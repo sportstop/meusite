@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SportTop</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Resetando alguns estilos padrão */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Estilos para o corpo da página */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            line-height: 1.6;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh; /* Garante que a altura mínima será 100% da tela */
+        }
+
+        /* Cabeçalho */
+        header {
+            display: flex;
+            justify-content: center; /* Centraliza todo o conteúdo do cabeçalho */
+            align-items: center; /* Alinha verticalmente o conteúdo */
+            background-color: #333;
+            color: white;
+            padding: 20px;
+            position: relative;
+        }
+
+        /* Logo Redonda */
+        header .logo {
+            position: absolute;
+            left: 20px; /* Coloca a logo à esquerda */
+            border-radius: 50%; /* Torna a logo redonda */
+            overflow: hidden; /* Garante que a imagem se ajuste ao formato redondo */
+            width: 60px; /* Define o tamanho da logo */
+            height: 60px; /* Define o tamanho da logo */
+            cursor: pointer; /* Muda o cursor para indicar que é clicável */
+        }
+
+        header .logo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Faz a imagem se ajustar ao contorno circular */
+        }
+
+        /* Estilo do título */
+        header h1 {
+            font-size: 36px;
+            text-align: center;
+            font-weight: bold;
+            color: #ffffff;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+            letter-spacing: 1px;
+            margin-left: 80px; /* Ajusta o título para a direita, afastado da logo */
+        }
+
+        /* Menu (inicialmente oculto) */
+        .menu {
+            display: none; /* Oculta o menu inicialmente */
+            position: absolute;
+            top: 80px; /* Coloca o menu logo abaixo da logo */
+            left: 20px;
+            background-color: #333;
+            color: white;
+            padding: 10px;
+            border-radius: 5px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3);
+        }
+
+        .menu a {
+            display: block;
+            color: white;
+            text-decoration: none;
+            padding: 10px;
+            margin: 5px 0;
+        }
+
+        .menu a:hover {
+            background-color: #444;
+        }
+
+        /* Carrossel de Produtos (rolagem lateral) */
+        .product-carousel {
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #fff;
+        }
+
+        .product-carousel h2 {
+            text-align: center;
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+
+        .carousel {
+            display: flex;
+            overflow-x: auto;
+            gap: 20px;
+            padding: 10px;
+            scroll-behavior: smooth;
+        }
+
+        .produto {
+            flex: 0 0 auto;
+            text-align: center;
+            width: 250px;
+            background-color: #eee;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .produto img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+
+        .produto h3 {
+            font-size: 18px;
+            margin-top: 10px;
+        }
+
+        .produto a {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 10px 20px;
+            background-color: #333;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+
+        .produto a:hover {
+            background-color: #555;
+        }
+
+        /* Seção de Produtos à Esquerda com Descrição */
+        .produtos {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            padding: 20px;
+        }
+
+        .produto-left {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .produto-left img {
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+
+        .produto-left h3 {
+            font-size: 18px;
+            margin: 0;
+            padding: 5px;
+        }
+
+        .produto-left p {
+            font-size: 14px;
+            color: #666;
+        }
+        
+        /* Rodapé */
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Cabeçalho -->
+    <header>
+        <div class="logo" id="logo" onclick="toggleMenu()">
+            <img src="Logo.jpeg" alt="Logo SportTop">
+        </div>
+        <h1>SportTop</h1>
+        <!-- Menu -->
+        <div class="menu" id="menu">
+            <a href="Home2.html">Produtos</a>
+            <a href="testemenu.html">Sobre Nós</a>
+        </div>
+    </header>
+
+    <!-- Carrossel de Produtos -->
+    <section class="product-carousel">
+        <h2>Ofertas</h2>
+        <div class="carousel">
+            <div class="produto">
+                <img src="joelheira_kanxa_futsal_373_1_20201213213549-removebg-preview.png" alt="Produto 1">
+                <h3>Joelheira Kanxa</h3>
+                <a href="#">Comprar</a>
+            </div>
+            <div class="produto">
+                <img src="tenisvolei-removebg-preview.png" alt="Produto 2">
+                <h3>Tênis de Vôlei</h3>
+                <a href="#">Comprar</a>
+            </div>
+            <div class="produto">
+                <img src="bolasal-removebg-preview (1).png" alt="Produto 3">
+                <h3>Bola de Futsal</h3>
+                <a href="#">Comprar</a>
+            </div>
+            <div class="produto">
+                <img src="bola-de-volei-mikasa-juvenil-vs220w-removebg-preview.jpg" alt="Produto 4">
+                <h3>Bola de Vôlei Mikasa Juvenil</h3>
+                <a href="#">Comprar</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção de Produtos à Esquerda com Descrição -->
+    <section class="produtos">
+        <div class="produto-left">
+            <img src="futecopa1-removebg-preview.png" alt="Produto 5">
+            <div>
+                <h3>Bola de Futebol</h3>
+                <p>Alta qualidade para a prática do esporte.</p>
+                <a href="#">Comprar</a>
+            </div>
+        </div>
+        <div class="produto-left">
+            <img src="Camisa de Time.jpg" alt="Produto 6">
+            <div>
+                <h3>Camisa de Time</h3>
+                <p>Camisa oficial de time, ideal para fãs.</p>
+                <a href="#">Comprar</a>
+            </div>
+        </div>
+        <div class="produto-left">
+            <img src="milan.jpg" alt="Produto 7">
+            <div>
+                <h3>Camisa de Time</h3>
+                <p>Camisa oficial do Milan, modelo 2024.</p>
+                <a href="#">Comprar</a>
+            </div>
+        </div>
+        <div class="produto-left">
+            <img src="cori.jpg" alt="Produto 8">
+            <div>
+                <h3>Camisa de Time</h3>
+                <p>Camisa do Corinthians, ideal para torcedores.</p>
+                <a href="#">Comprar</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Rodapé -->
+    <footer>
+        <p>&copy; 2025 Loja de Esportes. Todos os direitos reservados.</p>
+    </footer>
+
+    <script>
+        // Função para mostrar/ocultar o menu ao clicar na logo
+        function toggleMenu() {
+            const menu = document.getElementById('menu');
+            menu.style.display = (menu.style.display === 'block') ? 'none' : 'block';
+        }
+    </script>
+</body>
+</html>

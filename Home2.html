@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SportTop</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Resetando alguns estilos padrão */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Estilos para o corpo da página */
+        body {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh; /* Garante que a altura mínima será 100% da tela */
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        /* Cabeçalho */
+        header {
+            display: flex;
+            justify-content: center; /* Centraliza todo o conteúdo do cabeçalho */
+            align-items: center; /* Alinha verticalmente o conteúdo */
+            background-color: #333;
+            color: white;
+            padding: 20px;
+            position: relative;
+            flex-direction: column;
+        }
+
+        header h1 {
+            font-size: 36px;
+        }
+
+        /* Barra de pesquisa e filtro */
+        .filtro-pesquisa {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 10px;
+        }
+
+        .filtro-pesquisa select, .filtro-pesquisa input[type="text"] {
+            padding: 8px;
+            font-size: 16px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+        }
+
+        /* Seção de destaque */
+        .destaque {
+            background-color: #f9f9f9;
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        .destaque h2 {
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+
+        .destaque-produto {
+            display: inline-block;
+            background-color: white;
+            padding: 20px;
+            width: 300px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .destaque-produto img {
+            width: 100%;
+            height: auto;
+        }
+
+        .destaque-produto h3 {
+            font-size: 22px;
+            margin-top: 15px;
+        }
+
+        .destaque-produto p {
+            font-size: 14px;
+            margin-top: 10px;
+        }
+
+        .destaque-produto a {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #333;
+            color: white;
+            text-decoration: none;
+        }
+
+        .destaque-produto a:hover {
+            background-color: #555;
+        }
+
+        /* Seção de produtos */
+        .produtos {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            padding: 20px;
+            flex-grow: 1; /* Faz o conteúdo de produtos crescer e ocupar o espaço disponível */
+        }
+
+        .produto {
+            background-color: white;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .produto img {
+            width: 100%;
+            height: auto;
+        }
+
+        .produto h3 {
+            font-size: 18px;
+            margin-top: 15px;
+        }
+
+        .produto a {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 8px 16px;
+            background-color: #333;
+            color: white;
+            text-decoration: none;
+        }
+
+        .produto a:hover {
+            background-color: #555;
+        }
+
+        /* Rodapé */
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            /* Isso garante que o rodapé ficará no fundo */
+        }
+
+        .menu {
+            display: none; /* Oculta o menu inicialmente */
+            position: absolute;
+            top: 80px; /* Coloca o menu logo abaixo da logo */
+            left: 20px;
+            background-color: #333;
+            color: white;
+            padding: 10px;
+            border-radius: 5px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3);
+        }
+
+        .menu a {
+            display: block;
+            color: white;
+            text-decoration: none;
+            padding: 10px;
+            margin: 5px 0;
+        }
+
+        .menu a:hover {
+            background-color: #444;
+        }
+
+        header .logo {
+            position: absolute;
+            left: 20px; /* Coloca a logo à esquerda */
+            border-radius: 50%; /* Torna a logo redonda */
+            overflow: hidden; /* Garante que a imagem se ajuste ao formato redondo */
+            width: 60px; /* Define o tamanho da logo */
+            height: 60px; /* Define o tamanho da logo */
+            cursor: pointer; /* Muda o cursor para indicar que é clicável */
+        }
+
+        header .logo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Faz a imagem se ajustar ao contorno circular */
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo" id="logo" onclick="toggleMenu()">
+            <img src="Logo.jpeg" alt="Logo SportTop">
+        </div>
+        <h1>SportTop</h1>
+        <div class="filtro-pesquisa">
+            <select id="filtroCategoria">
+                <option value="">Todas as Categorias</option>
+                <option value="joelheira">Joelheiras</option>
+                <option value="calçados">Tênis</option>
+                <option value="bola">Bolas</option>
+                <option value="camisa">Camisa</option>
+                </select>
+            <input type="text" id="pesquisa" placeholder="Pesquisar produto...">
+        </div>
+        <div class="menu" id="menu">
+            <a href="Home.html">Home</a>
+            <a href="testemenu.html">Sobre Nós</a>
+        </div>
+    </header>
+
+    <section class="destaque">
+        <h1>Produtos</h1>
+    </section>
+
+    <section class="produtos" id="listaDeProdutos">
+        <div class="produto" data-categoria="joelheira" data-nome="Joelheira Kanxa Futsal">
+            <img src="joelheira_kanxa_futsal_373_1_20201213213549-removebg-preview.png" alt="Joelheira Kanxa Futsal">
+            <h3>Joelheira Kanxa Futsal</h3>
+            <a href="https://www.magazineluiza.com.br/joelheira-esportiva-volei-futsal-skate-handball-ante-impacto-ajustavel-unissex-pisste/p/jdgj6jg0ah/es/jlps/?utm_source=google&utm_medium=cpc&utm_campaign=google_eco_apl_pro_app_none_none_none_none-geral-catalogoapp&utm_term=76792&utm_content=catalogoapp_con_amp_catalogogoogle_cat_tod_none&partner_id=76792&seller_id=dgplace&srsltid=AfmBOoodExrhHEmiRyWLK_XNo0A19epQfcjtDdDOkD5g7jCiMRirzVRQNYo">Comprar</a>
+        </div>
+        <div class="produto" data-categoria="calçados" data-nome="Tênis de Vôlei Aesthetic Pierre">
+            <img src="tenisvolei-removebg-preview.png" alt="Tênis de Vôlei Aesthetic Pierre">
+            <h3>Tênis de Vôlei Aesthetic Pierre</h3>
+            <a href="https://pasaler.com/products/tenis-de-volei-aesthetic-pierre-respiravel-e-antiderrapante?currency=BRL&variant=43857286725811&utm_source=google&utm_medium=cpc&utm_campaign=Google%20Shopping&stkn=112749bb28e4">Comprar</a>
+        </div>
+        <div class="produto" data-categoria="bola" data-nome="Bola de Futebol Campo Oficial">
+            <img src="bolafut.jpg" alt="Bola de Futebol Campo Oficial">
+            <h3>Bola de Futebol Campo Oficial</h3>
+            <a href="#">Comprar</a>
+        </div>
+        <div class="produto" data-categoria="camisa" data-nome="Camiseta Esportiva Masculina">
+            <img src="Camisa de Time.jpg" alt="Camiseta Esportiva Masculina">
+            <h3>Camiseta Esportiva Masculina</h3>
+            <a href="#">Comprar</a>
+        </div>
+        <div class="produto" data-categoria="calçados" data-nome="Chuteira de Futsal Profissional">
+            <img src="negocio.jpg" alt="Chuteira de Futsal Profissional">
+            <h3>Chuteira de Futsal Profissional</h3>
+            <a href="#">Comprar</a>
+        </div>
+        <div class="produto" data-categoria="camisa" data-nome="Camiseta Esportiva Masculina">
+            <img src="milan.jpg" alt="Camiseta Esportiva Masculina">
+            <h3>Chuteira de Futsal Profissional</h3>
+            <a href="#">Comprar</a>
+        </div>
+        <div class="produto" data-categoria="Bola" data-nome="Bola de Futebol da Copa de 2022">
+            <img src="futecopa1-removebg-preview.png" alt="Bola de Futebol da Copa de 2022">
+            <h3>Bola de Futebol Profissional</h3>
+            <a href="#">Comprar</a>
+        </div>
+        </section>
+
+    <footer>
+        <p>&copy; 2025 Loja de Esportes. Todos os direitos reservados.</p>
+    </footer>
+
+    <script>
+        // Função para mostrar/ocultar o menu ao clicar na logo
+        function toggleMenu() {
+            const menu = document.getElementById('menu');
+            menu.style.display = (menu.style.display === 'block') ? 'none' : 'block';
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const filtroCategoria = document.getElementById('filtroCategoria');
+            const pesquisaInput = document.getElementById('pesquisa');
+            const listaDeProdutos = document.getElementById('listaDeProdutos');
+            const produtos = listaDeProdutos.querySelectorAll('.produto');
+
+            function filtrarProdutos() {
+                const categoriaSelecionada = filtroCategoria.value.toLowerCase();
+                const termoPesquisa = pesquisaInput.value.toLowerCase();
+
+                produtos.forEach(produto => {
+                    const categoriaProduto = produto.dataset.categoria.toLowerCase();
+                    const nomeProduto = produto.dataset.nome.toLowerCase();
+
+                    const correspondeCategoria = categoriaSelecionada === '' || categoriaProduto === categoriaSelecionada;
+                    const correspondePesquisa = nomeProduto.includes(termoPesquisa);
+
+                    if (correspondeCategoria && correspondePesquisa) {
+                        produto.style.display = 'block';
+                    } else {
+                        produto.style.display = 'none';
+                    }
+                });
+            }
+
+            filtroCategoria.addEventListener('change', filtrarProdutos);
+            pesquisaInput.addEventListener('input', filtrarProdutos);
+        });
+    </script>
+</body>
+</html>
